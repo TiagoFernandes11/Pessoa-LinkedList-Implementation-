@@ -42,6 +42,7 @@ public class Menu {
                     break;
 
             }
+            sc.close();
         }
 
     }
