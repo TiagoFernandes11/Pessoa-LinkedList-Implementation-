@@ -1,19 +1,16 @@
+import java.util.Scanner;
+
 public class Pessoa {
     private String nome;
     private Pessoa mae;
-
-    
+    private Pessoa referenciaAuxiliar = this;
+    private Scanner sc = new Scanner(System.in);
 
     public Pessoa() {
     }
 
     public Pessoa(String nome) {
         this.nome = nome;
-    }
-
-    public Pessoa(String nome, Pessoa pessoa) {
-        this.nome = nome;
-        this.mae = pessoa;
     }
 
     public String getNome() {
@@ -32,7 +29,15 @@ public class Pessoa {
         this.mae = pessoa;
     }
 
+    public void adicionarAncestral() {
+        System.out.println("Digite o nome do novo ancestral: ");
+        String nomeDaMae = sc.nextLine();
+        this.referenciaAuxiliar.mae = new Pessoa(nomeDaMae);
+        this.referenciaAuxiliar = referenciaAuxiliar.mae;
+    }
+
     public void imprimeArvoreRecursiva() {
+        System.out.println("Sua Geneologia: ");
         System.out.println(nome);
 
         if (mae == null) {

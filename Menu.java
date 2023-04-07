@@ -9,41 +9,31 @@ public class Menu {
 
         System.out.println("Digite seu nome: ");
         Pessoa eu = new Pessoa(sc.nextLine());
-        Pessoa referencia = eu;
         Integer resp = -1;
 
         while (resp != 0) {
-            System.out.println(s);
+            System.out.println("\n" + s);
             resp = sc.nextInt();
             System.out.println("------------------");
 
             switch (resp) {
                 case 1:
-                    sc.nextLine();
-                    System.out.println("Digite o nome do novo ancestral: ");
-                    String nomeDaMae = sc.nextLine();
-                    referencia.setMae(new Pessoa(nomeDaMae));
-                    referencia = referencia.getMae();
+                    eu.adicionarAncestral();
                     break;
                 case 2:
-                    sc.nextLine();
-                    System.out.println("imprimeArvoreRecursiva ");
                     eu.imprimeArvoreRecursiva();
                     break;
                 case 3:
-                    sc.nextLine();
                     System.out.println("alter ancestral ");
                     // alter ancestral
                     break;
                 case 4:
-                    sc.nextLine();
                     System.out.println("remover ancestral (quebrar link) ");
                     // remover ancestral (quebrar link)
                     break;
 
             }
-            sc.close();
         }
-
+        sc.close();
     }
 }
