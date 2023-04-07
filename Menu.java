@@ -2,7 +2,9 @@ import java.util.Scanner;
 
 public class Menu {
 
-    static String s = "------ Menu ------\n1- Adicionar\n2- Exibir lista\n3- Alterar nome\n4- Remover ancestral\n0- Sair";
+    static String s = "------ Menu ------\n1- Adicionar " +
+            "\n2- Exibir lista\n3- Alterar nome\n4- Remover ancestral\n0- Sair" +
+            "\n-----------------";
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

@@ -57,12 +57,12 @@ public class Pessoa {
     }
 
     public void alterarNomeDeAncestral(String nomeAncestral, String novoNome) {
-        if (this.mae.equals(null)) {
-            System.out.println("Não existe ancestral com esse nome");
-            return;
-        }
         if (this.nome.equals(nomeAncestral)) {
             this.nome = novoNome;
+            return;
+        }
+        if (this.mae == null) {
+            System.out.println("Não existe ancestral com esse nome");
             return;
         }
         this.mae.alterarNomeDeAncestral(nomeAncestral, novoNome);
