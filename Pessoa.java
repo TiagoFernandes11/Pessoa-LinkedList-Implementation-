@@ -36,6 +36,7 @@ public class Pessoa {
     }
 
     public void removerAncestral(String nomeAcestral) {
+        // (BUG) caso seja removido o ultimo ancestral. Os demais ancestrais posteriormente adicionados não aparecerão na lista
         if (this.mae.nome.equals(nomeAcestral)) {
             this.mae = this.mae.mae;
             return;
