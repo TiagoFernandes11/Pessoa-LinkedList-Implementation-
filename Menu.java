@@ -23,7 +23,7 @@ public class Menu {
                     eu.adicionarAncestral();
                     break;
                 case 2:
-                    eu.imprimeArvoreRecursiva();
+                    eu.imprimeArvoreGeneologica();
                     break;
                 case 3:
                     eu.alterarNomeDeAncestral();

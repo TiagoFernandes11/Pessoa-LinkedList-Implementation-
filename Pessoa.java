@@ -28,6 +28,18 @@ public class Pessoa {
         this.mae = pessoa;
     }
 
+    public void inserirAncestral() {
+        System.out.println("De quem esse ancestral é filho? ");
+        String nomeDaMae = sc.nextLine();
+        System.out.println("Digite o nome do filho da " + nomeDaMae + ": ");
+        String nomeDoFilho = sc.nextLine();
+        inserirAncestral(nomeDaMae, nomeDoFilho);
+    }
+
+    public void inserirAncestral(String nomeDaMae, String nomeDoFilho) {
+        System.out.println("Falta implementar");
+    }
+
     public void removerAncestral() {
         System.out.println("Digite o nome do ancestral de deseja remover: ");
         String nomeAncestral = sc.nextLine();
@@ -73,22 +85,22 @@ public class Pessoa {
         String nomeDaMae = sc.nextLine();
         adicionarAncestral(nomeDaMae);
     }
-    
-    public void adicionarAncestral(String nomeDaMae){
-        if(mae == null){
+
+    public void adicionarAncestral(String nomeDaMae) {
+        if (mae == null) {
             mae = new Pessoa(nomeDaMae);
             return;
         }
         mae.adicionarAncestral(nomeDaMae);
     }
 
-    public void imprimeArvoreRecursiva() {
+    public void imprimeArvoreGeneologica() {
         System.out.println(nome);
         if (mae == null) {
             System.out.println("Função recursiva!");
             return;
         }
-        mae.imprimeArvoreRecursiva();
+        mae.imprimeArvoreGeneologica();
     }
 
 }
