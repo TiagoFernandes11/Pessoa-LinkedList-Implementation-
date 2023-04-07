@@ -36,11 +36,11 @@ public class Pessoa {
     }
 
     public void removerAncestral(String nomeAcestral) {
-        if (this.mae == null) {
+        if (this.mae.equals(null)) {
             System.out.println("Não existe ancestral com esse nome");
             return;
         }
-        if (this.nome == nomeAcestral) {
+        if (this.nome.equals(nomeAcestral)) {
             this.mae = this.mae.mae;
             return;
         }
@@ -57,11 +57,11 @@ public class Pessoa {
     }
 
     public void alterarNomeDeAncestral(String nomeAncestral, String novoNome) {
-        if (this.mae == null) {
+        if (this.mae.equals(null)) {
             System.out.println("Não existe ancestral com esse nome");
             return;
         }
-        if (this.nome == nomeAncestral) {
+        if (this.nome.equals(nomeAncestral)) {
             this.nome = novoNome;
             return;
         }

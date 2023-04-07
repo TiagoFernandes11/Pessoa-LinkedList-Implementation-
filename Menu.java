@@ -24,12 +24,10 @@ public class Menu {
                     eu.imprimeArvoreRecursiva();
                     break;
                 case 3:
-                    System.out.println("alter ancestral ");
-                    // alter ancestral
+                    eu.alterarNomeDeAncestral();
                     break;
                 case 4:
-                    System.out.println("remover ancestral (quebrar link) ");
-                    // remover ancestral (quebrar link)
+                    eu.removerAncestral();
                     break;
 
             }
