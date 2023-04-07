@@ -36,8 +36,14 @@ public class Pessoa {
     }
 
     public void removerAncestral(String nomeAcestral) {
-        // (BUG) caso seja removido o ultimo ancestral. Os demais ancestrais posteriormente adicionados não aparecerão na lista
+        // (BUG) caso seja removido o ultimo ancestral. Os demais ancestrais
+        // posteriormente adicionados não aparecerão na lista
         if (this.mae.nome.equals(nomeAcestral)) {
+            if (this.mae.mae == null) {
+                this.mae = null;
+                this.referenciaAuxiliar = this;
+                return;
+            }
             this.mae = this.mae.mae;
             return;
         }
@@ -70,6 +76,8 @@ public class Pessoa {
     }
 
     public void adicionarAncestral() {
+        // É preciso resolver o problema da referencia aux caso ultimo ancestral seja
+        // removido
         System.out.println("Digite o nome do novo ancestral: ");
         String nomeDaMae = sc.nextLine();
         this.referenciaAuxiliar.mae = new Pessoa(nomeDaMae);
