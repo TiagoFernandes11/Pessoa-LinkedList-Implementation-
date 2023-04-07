@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Pessoa {
     private String nome;
     private Pessoa mae;
-    private Pessoa referenciaAuxiliar = this;
     private Scanner sc = new Scanner(System.in);
 
     public Pessoa() {
@@ -36,12 +35,8 @@ public class Pessoa {
     }
 
     public void removerAncestral(String nomeAcestral) {
+        // ainda tem o mesmo problema de antes :,(
         if (this.mae.nome.equals(nomeAcestral)) {
-            if (this.mae.mae == null) {
-                this.mae = null;
-                this.referenciaAuxiliar = this;
-                return;
-            }
             this.mae = this.mae.mae;
             return;
         }
@@ -76,8 +71,15 @@ public class Pessoa {
     public void adicionarAncestral() {
         System.out.println("Digite o nome do novo ancestral: ");
         String nomeDaMae = sc.nextLine();
-        this.referenciaAuxiliar.mae = new Pessoa(nomeDaMae);
-        this.referenciaAuxiliar = referenciaAuxiliar.mae;
+        adicionarAncestral(nomeDaMae);
+    }
+    
+    public void adicionarAncestral(String nomeDaMae){
+        if(mae == null){
+            mae = new Pessoa(nomeDaMae);
+            return;
+        }
+        mae.adicionarAncestral(nomeDaMae);
     }
 
     public void imprimeArvoreRecursiva() {
