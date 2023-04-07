@@ -36,12 +36,12 @@ public class Pessoa {
     }
 
     public void removerAncestral(String nomeAcestral) {
-        if (this.mae.equals(nomeAcestral)) {
-            System.out.println("Não existe ancestral com esse nome");
-            return;
-        }
         if (this.mae.nome.equals(nomeAcestral)) {
             this.mae = this.mae.mae;
+            return;
+        }
+        if (this.mae == null) {
+            System.out.println("Não existe ancestral com esse nome");
             return;
         }
         this.mae.removerAncestral(nomeAcestral);
